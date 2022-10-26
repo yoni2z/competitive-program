@@ -1,0 +1,27 @@
+if __name__ == '__main__':
+    WholeList = []
+    Names = []
+    Scores = []
+    for _ in range(int(input())):
+        list = []
+        name = input()
+        score = float(input())
+        list.append(name)
+        list.append(score)
+        WholeList.append(list)
+        Names.append(name)
+        Scores.append(score)
+        
+    mini = min(Scores)
+    maxi = max(Scores)
+    for i in Scores:
+        if i > mini and i <= maxi:
+            maxi = i
+    names = []
+    for i in range(len(Scores)):
+        if (Scores[i] == maxi):
+            names.append(Names[i])
+    names.sort()
+    for i in names:
+        print(i)
+        
