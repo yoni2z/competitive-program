@@ -1,0 +1,13 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    list = []
+    for i in arr:
+        list.append(i)
+    list.sort()
+    top = max(list)
+    mini = min(list)
+    for i in list:
+        if i > mini and i < top:
+            mini = i
+    print(mini)
