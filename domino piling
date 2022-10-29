@@ -1,0 +1,6 @@
+number = input().split()
+list = list(map(int, number))
+mult = 1
+for i in list:
+    mult *= i
+print(mult // 2)
