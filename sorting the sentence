@@ -1,0 +1,23 @@
+class Solution {
+    public String sortSentence(String s) {
+        String[] words = s.split(" ");
+        int y = words.length;
+		String[] complete = new String[y];
+		for (String i: words) {
+			int len = i.length();
+            int x = Integer.parseInt(i.substring(len - 1));
+			complete[x - 1] = i.substring(0, len - 1);
+		}
+        String str = "";
+        int count = 0;
+		for (String j: complete) {
+            if (count == y - 1){
+                str = str + j;
+            }else {
+                str = str + j + " ";
+                count++;
+            }
+		}
+        return str;
+    }
+}
