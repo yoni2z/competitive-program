@@ -1,0 +1,56 @@
+class Solution {
+    public int[][] kClosest(int[][] points, int k) {
+    int x, y, index1 = 0;
+		double distance, max = 0, minimum;
+		int n = points.length;
+		double arr[] = new double[n];
+		int[] arr2 = new int[k];
+		int[][] solution = new int[k][2];
+		
+		for (int i=0; i < n; i++) {
+			x = points[i][0];
+			y = points[i][1];
+			
+			distance = Math.sqrt(x*x + y*y);
+			arr[i] = distance;
+			if (distance > max) {
+				max = distance;
+			}
+		}
+		
+		minimum = arr[0];
+		for (double i:arr) {
+			if(i < minimum) {
+				minimum = i;
+			}
+		}
+		
+		if (minimum == max) {
+			for (int i = 0; i<k; i++) {
+				arr2[i] = i;
+			}
+		} else {
+		for (int j = 0; j < k; j++) {
+			double min = max;
+			for (int i = 0; i < n; i++) {
+				
+					if(arr[i] < min) {
+						min = arr[i];
+						index1 = i;
+					}
+				
+			}
+			arr2[j] = index1;
+			arr[index1] = max;
+		}
+		}
+		
+		for (int i = 0; i < k; i++) {
+			
+			solution[i][0] = points[arr2[i]][0];
+			solution[i][1] = points[arr2[i]][1];
+		}
+		
+		return solution;
+    }
+}
